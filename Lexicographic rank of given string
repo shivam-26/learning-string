@@ -6,7 +6,7 @@ int fact(int n)
     return (n <= 1) ? 1 : n * fact(n - 1);
 }
 
- 
+ //This solution is O(n).There also exist naive solution of finding all the permutation of given string alphabetically and then getting rank but this is exponantial solution.
 int lexRank(string str)
 {
     int res=1;
