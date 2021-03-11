@@ -1,0 +1,38 @@
+//This is the program to search if any permutation of given patttern is present in string.
+
+#include <bits/stdc++.h>
+using namespace std;
+bool compare(int str1[],int str2[])
+{
+    for(int i=0;i<256;i++)
+      if(str1[i] != str2[i])
+         return false;
+    return true;
+}
+void anagramSearch(string txt,string patt)
+{
+  int countText[256]={0},countPatt[256]={0};
+  for(int i=0;i<patt.length();i++)
+  {
+      countPatt[patt[i]]++;
+      countText[txt[i]]++;
+  }
+  for(int i=patt.length();i<=txt.length();i++)
+  {
+      if(compare(countPatt,countText))
+      {
+          cout << "Found at Index " << (i - patt.length()) << endl;
+      }
+      countText[txt[i]]++;
+      countText[txt[i-patt.length()]]--;
+  }
+  if (compare(countPatt, countText)) 
+        cout << "Found at Index " << (txt.length() - patt.length()) << endl; 
+}
+int main() 
+{ 
+    char txt[] = "BACDGABCDA"; 
+    char pat[] = "ABCD"; 
+    anagramSearch(txt, pat); 
+    return 0; 
+} 
