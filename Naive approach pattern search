@@ -1,0 +1,23 @@
+//C++ program to for pattern searching , here is a naive solution.
+#include <bits/stdc++.h>
+using namespace std;
+void searchPattern(string txt,string patt)
+{
+    int n=txt.length(), m = patt.length();
+    for(int i=0;i<=n-m;i++)
+    {
+        int j;
+        for( j=0;j<m;j++)
+          if(txt[i+j] != patt[j])
+            break;
+        if(j==m)
+         cout<<i<<endl;
+    }
+}
+int main() 
+{ 
+    char txt[] = "AABAACAADAABAAABAA"; 
+    char pat[] = "AABA"; 
+    searchPattern(txt, pat); 
+    return 0; 
+} 
