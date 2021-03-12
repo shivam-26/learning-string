@@ -1,0 +1,30 @@
+//C++ program to for pattern searching in O(n) if all charaters are distinct in pattern.
+#include <bits/stdc++.h>
+using namespace std;
+void patternSearch(string patt,string txt)
+{
+    int n=txt.size(),m = patt.size();
+    int i=0;
+    while(i<=n-m)
+    {
+        int j;
+        for(j=0;j<m;j++)
+         if(txt[i+j] != patt[j])
+           break;
+        if(j==m)
+        {cout<<"Pattern found at index " << i << endl; 
+         i = i + m;
+        }
+        else if(j==0)i++;
+        else
+          i = i + j;
+            
+        }
+}
+int main()  
+{  
+    string txt = "ABCEABCDABCEABCD";  
+    string pat = "ABCD";  
+    patternSearch(pat, txt);  
+    return 0;  
+}  
